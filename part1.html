@@ -31,6 +31,13 @@ class: center, middle
 ---
 class: center, middle
 
+# Part I
+
+## LET'S GET HYPE
+
+---
+class: center, middle
+
 # What is "the web platform"?
 
 ## It should be "the web *application* platform."
@@ -269,6 +276,115 @@ class: center, middle
 
 ## [A talk by Gary Bernhardt from PyCon 2014](https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript)
 
+---
+class: center, middle
+
+# Part II
+
+## Your first wasm
+
+---
+class: center, middle
+
+## Let's add one to a number!
+
+#### https://github.com/WebAssembly/wabt
+
+#### https://cdn.rawgit.com/WebAssembly/wabt/aae5a4b7/demo/wat2wasm/index.html
+
+#### http://steveklabnik.github.io/booster2018/test.html
+
+---
+class: center, middle
+
+# Part III
+
+## Let's dig in!
+
+---
+class: center, middle
+
+# Explore
+
+#### https://wasdk.github.io/wasmcodeexplorer/
+
+---
+class: center, middle
+
+# Text vs Binary format
+
+### There are two!
+
+---
+class: center, middle
+
+# ✨ The magic number ✨
+
+## <code>00 61 73 6D</code>
+
+---
+class: center, middle
+
+# Sections (non-exhaustive)
+
+#### * Function Section
+#### * Type Section
+#### * Code Section
+#### * Start Section
+#### * Import Section
+#### * Export Section
+
+---
+class: center, middle
+
+# Defining functions
+
+### The function, type, and code sections define functions
+
+### type sections list type signatures
+
+### code sections list code
+
+### function sections tie them together
+
+---
+class: center, middle
+
+# Running something at the start
+
+### The start section runs a function when the module is loaded
+
+---
+class: center, middle
+
+# Wasm <-> JS
+
+### The import sections declare functions you need
+
+### The export sections declare functions you give
+
+---
+class: center, middle
+
+# Instructions
+
+#### https://github.com/sunfishcode/wasm-reference-manual/blob/master/WebAssembly.md#instructions
+
+---
+class: center, middle
+
+# Memory
+
+### A "byte" means 8 bits
+
+### Memory is like a giant array
+
+---
+class: center, middle
+
+# Embedding Environment
+
+### More than just browsers!
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">

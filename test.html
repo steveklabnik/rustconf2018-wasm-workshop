@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Semver on the web with Rust and WebAssembly</title>
+  <script>
+    fetch("test.wasm").then(response =>
+      response.arrayBuffer()
+    ).then(bytes =>
+      WebAssembly.instantiate(bytes, {})
+    ).then(results => {
+      let addOne = results.instance.exports.addOne;
+      alert(addOne(2));
+    });
+  </script>
+</head>
+<body>
+<h1>Hello world!</h1>
+</body>
