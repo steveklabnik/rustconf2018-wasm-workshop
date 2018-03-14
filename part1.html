@@ -22,6 +22,254 @@ class: center, middle
 
 # Agenda
 
+### * 09:05 - 09:30: WASM overview
+### * 09:30 - 10:00: a WASM "hello world"
+### * 10:00 - 10:30: explain previous in depth
+
+### Feel free to jump in with questions at any point!
+
+---
+class: center, middle
+
+# What is "the web platform"?
+
+## It should be "the web *application* platform."
+
+---
+class: center, middle
+
+# Platforms consist of:
+
+### 1. An ISA (instruction set architecture)
+### 2. A runtime environment and its API
+### 3. Tooling to help you build stuff
+
+---
+class: center, middle
+
+# Case study: UNIX on x86
+
+### 1. ISA: x86
+### 2. Runtime: UNIX (wait what?)
+### 3. Tooling: shell, C, gcc
+
+---
+class: center, middle
+
+# Case study: Java
+
+### 1. ISA: Java Bytecode
+### 2. Runtime: JVM
+### 3. Tooling: javac
+
+---
+class: center, middle
+
+### The web platform is unusual in that it was developed
+## out of order
+### and it historically has had
+## missing pieces
+
+---
+class: center, middle
+
+## Other platforms were local, then networked.
+
+## The web platform is networked, and only now becoming local.
+
+---
+class: center, middle
+
+# The browser was a *viewport* into an *application on the server*.
+
+---
+class: center, middle
+
+# This limits the kind of applications that we can build on the web platform.
+
+---
+class: center, middle
+
+# Where are we going?
+
+---
+class: center, middle
+
+## Further developing the web platform's capabilities requires filling in the missing pieces.
+
+---
+class: center, middle
+
+# Case study: Web Platform
+
+### 1. ISA: ???
+### 2. Runtime: JavaScript + Platform APIs
+### 3. Tooling: So so so so so many
+
+---
+class: center, middle
+
+# JavaScript as ISA?
+
+## Sort of, but not *really*.
+
+---
+class: center, middle
+
+# JavaScript was not designed for this task.
+
+## "Compile to JS" works, but has significant drawbacks.
+
+---
+class: left, middle
+
+### Overhead: Download, Parse, Compile, Execute
+### No integers?
+### Too complex (885 pages)
+
+---
+class: center, middle
+
+# Enter WebAssembly
+
+### 1. ISA: **WebAssembly**
+### 2. Runtime: JavaScript + Platform APIs
+### 3. Tooling: So so so so so many
+
+### Spec: 165 pages
+
+---
+class: center, middle
+
+## Previously, the web could only handle *high level* tasks.
+
+## With wasm, the web platform can handle *low level* tasks.
+
+---
+class: center, middle
+
+## The Web Platform is closing in on application spaces previously only possible on other platforms.
+
+---
+class: center, middle
+
+### Aside: isn't this Java Applets? NaCL?
+
+# NO
+
+### * One VM
+### * Not tied to one language
+### * Proper platform integration
+
+---
+class: center, middle
+
+## It's not just about wasm, it's also about the platform expanding:
+
+### * WebGL
+### * WebAudio
+### * WebUSB (!)
+
+---
+class: center, middle
+
+## Soon, "web application" does not need to be synonymous with "networked application" or "web page" or anything else we associate with the web platform today.
+
+---
+class: center, middle
+
+## SPAs shifted *some* of the application to the client.
+
+## This work enables *all* of the application to be on the client.
+
+---
+class: center, middle
+
+# Why is this useful?
+
+## Universal, cross-platform applications.
+
+## "no install neccesary"
+
+---
+class: center, middle
+
+# What *is* WebAssembly, anyway?
+
+## Extremely misunderstood 🙁
+
+---
+class: center, middle
+
+# Factorial
+
+## Wasm is a compact, binary format:
+
+<h3><code>
+20 00 42 00 51 04 7e 42 01 05 20
+00 20 00 42 01 7d 10 00 7e 0b
+</code></h3>
+
+---
+class: center, middle
+
+## It also has a text format, so you can "view source" easily.
+
+![textual representation](img/text.png)
+
+---
+class: center, middle
+
+## It's designed to be small, efficient, and integrate with existing JS VMs.
+
+---
+class: center, middle
+
+## It's *not* designed to replace JavaScript
+
+---
+class: center, middle
+
+## It has limitations, such as not being able to access the DOM
+
+---
+class: center, middle
+
+## It has no GC integration
+
+### This means, C, C++, and Rust
+
+#### JavaScript does *not* compile to wasm
+
+---
+class: center, middle
+
+## You can do cool things!
+
+![Rust in the browser](img/rustinthebrowser.png)
+
+---
+class: center, middle
+
+## You can do cool things!
+
+![buddhabrot](img/buddha.png)
+
+---
+class: center, middle
+
+## Traditional web applications will always be a thing.
+
+### This is about *expansion*, not *replacement*.
+
+---
+class: center, middle
+
+# The Birth &amp; Death of JavaScript
+
+## [A talk by Gary Bernhardt from PyCon 2014](https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript)
+
+
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
     </script>
