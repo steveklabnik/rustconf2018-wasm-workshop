@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Wasm Workshop</title>
+    <title>WebAssembly Workshop</title>
     <meta charset="utf-8">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link href="styles/website.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-  <h1>Wasm Workshop: BoosterConf 2018</h1>
-  <p>This page is located at <a href="http://steveklabnik.github.io/booster2018">http://steveklabnik.github.io/booster2018</a></p>
+    <div class="container">
+      <section class="header">
+        <img id="rustwasm" src="img/rustwebassembly.png">
+        <h2 class="docs-header">BoosterConf 2018</h2>
+        <h1>WebAssembly Workshop</h1>
+        <p>This page is located at <a href="http://steveklabnik.github.io/booster2018">http://steveklabnik.github.io/booster2018</a></p>
+      </section>
 
-  <h2>Overall agenda:</h2>
-  <p>The workshop is structured <strong>bottom-up</strong>; we'll start by doing everything by hand, and end up
-  showing how to use nice tools at the end. That way, you know how the tools work!</p>
-  <ol>
-	  <li>Steve will give an overview of WASM; we'll write some wasm code by hand, and integrate it into a web page</li>
-	  <li>Ashley will show you how to turn Rust into WASM, a more practical way of using it</li>
-  </ol>
+      <section id="agenda">
+        <h2 class="docs-header">Agenda:</h2>
+        <p>The workshop is structured <strong>bottom-up</strong>; we'll start by doing everything by hand, and end up showing how to use nice tools at the end. That way, you know how the tools work!</p>
+        <ul class="agenda-list">
+	        <li>
+            <h3><span class="docs-header">[Part 1]</span> WebAssembly Overview</h3>
+            <p>Steve will give an overview of WASM; we'll write some wasm code by hand, and integrate it into a web page. <a href="part1.html">[Slides]</a></p>
+          </li>
+	        <li>
+            <h3><span class="docs-header">[Part 2]</span> From Rust to Webpack: WebAssembly Tooling</h3>
+            <p>Ashley will show you how to turn Rust into WASM, integrating well-known developer workflows with npm and webpack. <a href="part2.html">[Slides]</a><p>
+            <h4 class="docs-header">Tools</h4>
+            <p>Please install the following tools: <a href="https://www.rust-lang.org/en-US/install.html">rustup and Cargo</a>, <a href="https://www.npmjs.com/get-npm">Node.js, nvm, npm</a>. If you prefer, you can also use <a href="https://yarnpkg.com">yarn</a> or any other Node.js based web package manager, though this workshop will only demonstrate the npm workflow.</p>
+            <p></p>
+          </li>
+        </ul>
+      </section>
 
-  <h2>Install some stuff!</h2>
-  <p>You'll need this stuff installed for the second half:</p>
-  <ul>
-	  <li><a href="https://www.rust-lang.org/install.html">Rust</a></li>
-  </ul>
-
-  <h2>Slides</h2>
-  <p>Here's a link to the slides if you'd like to follow along:</p>
-  <ul>
-	  <li><a href="part1.html">Part 1</a>
-	  <li><a href="part2.html">Part 2</a>
-  </ul>
+    </div>
   </body>
 </html>
