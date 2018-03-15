@@ -3,24 +3,193 @@
   <head>
     <title>Wasm Workshop: Part 2</title>
     <meta charset="utf-8">
-    <link href="fonts/Fira/fira.css" rel="stylesheet"/>
-    <link href="styles/custom.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link href="styles/part2slides.css" rel="stylesheet"/>
   </head>
   <body>
     <textarea id="source">
 
 class: center, middle
 
-# Wasm Workshop: Part 2
+![wasm+rust](img/rustwebassembly.png)
+# From Rust to Webpack: .bold[WebAssembly Tooling]
 
-## By @ag_dubs
-
-### (slides made extra awesome by @ag_dubs)
+### Ashley Williams, @ag_dubs
 
 ---
-class: center, middle
+class: left, top
 
-# Agenda
+# .slide-header[Agenda]
+
+- Overview
+- A Brief Intro to Rust
+- Writing A RustWASM Crate
+- `wasm-bindgen`
+- `wasm-pack`
+- Hello WASM! website
+
+---
+class: left, top
+
+# .slide-header[Overview]
+
+# How does a piece of Rust code end up as code that can be consumed by the browser?
+.pipeline[![rustwasm pipeline](img/lin_pipeline.png)]
+
+.footnote[Lin Clark. https://hacks.mozilla.org/2018/03/making-webassembly-better-for-rust-for-all-languages/]
+
+---
+class: left, top
+
+# .slide-header[Overview]
+
+- Code is written in Rust
+- Rust is compiled to a WASM target
+- `wasm-bindgen` translates Rust function signatures to WASM
+- `wasm-pack` packages the compiled code for npm
+- `webpack` bundles the code for the browser
+
+---
+class: left, top
+
+# .slide-header[A Brief Intro to Rust]
+## **Rust** is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.
+.pipeline[![rustwasm pipeline](img/ferris.gif)]
+.footnote[https://www.rust-lang.org]
+
+---
+class: left, top
+
+# .slide-header[A Brief Intro to Rust]
+## **Rust** is ? ???????? ?????? ?????? ????? ???? ?????? ?????? ???? ????????? ?????? ??????????? ??????? ?????? ?????? ??????????
+.pipeline[![rustwasm pipeline](img/ferris.gif)]
+.footnote[https://www.rust-lang.org]
+
+---
+class: left, top
+
+# .slide-header[A Brief Intro to Rust]
+## **Rust** is a systems programming language designed to **empower developers of all kinds to write fast, safe code**.
+.pipeline[![rustwasm pipeline](img/ferris.gif)]
+
+---
+class: left, top
+
+# .slide-header[A Brief Intro to Rust]
+
+# Tools
+
+## - `rustup`: a version manager and toolchain installer
+## - `cargo`: a package manager, build tool, test runner, and documentation generator
+
+---
+class: left, top
+
+# .slide-header[A Brief Intro to Rust]
+
+## Setting up a Project
+
+We're going to be making a *library* project; the other option is a *binary* or application.
+
+`cargo new` will create a skeleton project setup for you.
+
+1. `cd` to a directory where you like to store code
+2. `cargo new hello-wasm`
+3. `cd hello-wasm`
+
+---
+class: left, top
+
+# .slide-header[A Brief Intro to Rust]
+
+## Files created
+
+- `Cargo.toml`: metadata about your project and its dependencies
+- `.gitignore`: ignores compiled files built by Rust
+- `src/lib.rs`: where your Rust code goes
+
+---
+class: left, top
+
+# .slide-header[A Brief Intro to Rust]
+
+## `Cargo.toml`
+
+This file contains metadata about your project as well as all the information about its dependencies.
+It's like a `package.json`.
+
+```toml
+[package]
+name = "hello-wasm"
+description = "a crate to learn about wasm"
+version = "0.1.0"
+authors = ["Ashley Williams <ashley666ashley@gmail.com>"]
+license = "WTFPL"
+repository = "https://github.com/ashleygwilliams/hello-wasm"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = "0.1.0"
+```
+
+---
+class: left, top
+
+# .slide-header[A Brief Intro to Rust]
+
+## Variables
+
+```rust
+let name = "ashley";
+let age = 30;
+println!("Hi, {}! You are {} years old.", name, age);
+```
+
+## Mutability
+
+Variables are *immutable* by default in Rust.
+
+```rust
+let name = "ashley";
+let mut age = 30;
+age += 1;
+println!("Hi, {}! You are ACTUALLY {} years old.", name, age);
+```
+
+---
+class: left, top, string
+
+# .slide-header[A Brief Intro to Rust]
+
+## A Tale of Two Strings
+
+Strings are actually quite complicated! Dynamic languages hide this, but *sadly* Rust doesn't.
+In the beginning strings in Rust can feel difficult :(
+
+### `String`
+
+* Full featured with convenience methods
+* Can create with either:
+  * `something.to_string()` OR `String::from("string slice")`
+
+### `&str`
+
+* Pronounced "and stir" or "string slice"
+* Hardcoded strings are `&str`s
+
+---
+class: left, top
+
+# .slide-header[A Brief Intro to Rust]
+
+## API Documentation
+
+# https://doc.rust-lang.org/
+
+
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
