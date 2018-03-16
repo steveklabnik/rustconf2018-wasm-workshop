@@ -1,0 +1,43 @@
+img {
+  width: 80%;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.slide-header {
+  text-transform: uppercase;
+  font-size: 3rem;
+  letter-spacing: .2rem;
+  font-weight: 600;
+  background: #6556EC;
+  color: white;
+  display: block;
+  padding: 5px 10px;
+}
+
+li {
+  font-size: 4rem;
+}
+
+.string li {
+  font-size: 2.2rem;
+}
+
+.footnote {
+  position: absolute;
+  bottom: 20px;
+  font-weight: 400;
+  margin-right: 20px;
+  font-size: 0.5em;
+}
+
+.pipeline img {
+  width: 100%;
+  padding: 40px 0;
+}
+
+h1 {
+  padding: 10px 0;
+}
