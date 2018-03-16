@@ -3,109 +3,115 @@
   <head>
     <title>Wasm Workshop: Part 1</title>
     <meta charset="utf-8">
-    <link href="fonts/Fira/fira.css" rel="stylesheet"/>
-    <link href="styles/custom.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" rel="stylesheet"/>
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link href="styles/part2slides.css" rel="stylesheet"/>
   </head>
   <body>
     <textarea id="source">
-
 class: center, middle
 
-# Wasm Workshop: Part 1
+![wasm+rust](img/rustwebassembly.png)
+# From Rust to Webpack: .bold[WebAssembly Fundamentals]
 
-## By @steveklabnik
+### Steve Klabnik, @steveklabnik
 
-### (slides made extra awesome by @ag_dubs)
+---
+class: left, top
+
+# .slide-header[Agenda]
+
+* 09:05 - 09:30: WASM overview
+* 09:30 - 10:00: a WASM "hello world"
+* 10:00 - 10:30: explain previous in depth
+
+Feel free to jump in with questions at any point!
 
 ---
 class: center, middle
 
-# Agenda
-
-### * 09:05 - 09:30: WASM overview
-### * 09:30 - 10:00: a WASM "hello world"
-### * 10:00 - 10:30: explain previous in depth
-
-### Feel free to jump in with questions at any point!
-
----
-class: center, middle
-
-# Part I
+# .slide-header[Part I]
 
 ## LET'S GET HYPE
 
 ---
-class: center, middle
+class: left, top
 
-# What is "the web platform"?
+# .slide-header[What is "the web platform"?]
 
 ## It should be "the web *application* platform."
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[About platforms]
 
 # Platforms consist of:
 
-### 1. An ISA (instruction set architecture)
-### 2. A runtime environment and its API
-### 3. Tooling to help you build stuff
+1. An ISA (instruction set architecture)
+2. A runtime environment and its API
+3. Tooling to help you build stuff
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[About platforms]
 
 # Case study: UNIX on x86
 
-### 1. ISA: x86
-### 2. Runtime: UNIX (wait what?)
-### 3. Tooling: shell, C, gcc
+1. ISA: x86
+2. Runtime: UNIX (wait what?)
+3. Tooling: shell, C, gcc
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[About platforms]
 
 # Case study: Java
 
-### 1. ISA: Java Bytecode
-### 2. Runtime: JVM
-### 3. Tooling: javac
+1. ISA: Java Bytecode
+2. Runtime: JVM
+3. Tooling: javac
 
 ---
 class: center, middle
+# .slide-header[About platforms]
 
-### The web platform is unusual in that it was developed
-## out of order
-### and it historically has had
-## missing pieces
+## The web platform is unusual in that it was developed out of order and it historically has had missing pieces
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[About platforms]
 
 ## Other platforms were local, then networked.
 
 ## The web platform is networked, and only now becoming local.
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[About platforms]
 
 # The browser was a *viewport* into an *application on the server*.
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[About platforms]
 
 # This limits the kind of applications that we can build on the web platform.
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Next steps for the web platform]
 
 # Where are we going?
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Next steps for the web platform]
 
 ## Further developing the web platform's capabilities requires filling in the missing pieces.
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Next steps for the web platform]
 
 # Case study: Web Platform
 
@@ -114,83 +120,94 @@ class: center, middle
 ### 3. Tooling: So so so so so many
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Next steps for the web platform]
 
 # JavaScript as ISA?
 
 ## Sort of, but not *really*.
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Next steps for the web platform]
 
 # JavaScript was not designed for this task.
 
 ## "Compile to JS" works, but has significant drawbacks.
 
 ---
-class: left, middle
+class: left, top
+# .slide-header[Next steps for the web platform]
 
-### Overhead: Download, Parse, Compile, Execute
-### No integers?
-### Too complex (885 pages)
+* Overhead: Download, Parse, Compile, Execute
+* No integers?
+* Too complex (885 pages)
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Enter WebAssembly]
 
 # Enter WebAssembly
 
-### 1. ISA: **WebAssembly**
-### 2. Runtime: JavaScript + Platform APIs
-### 3. Tooling: So so so so so many
+1. ISA: **WebAssembly**
+2. Runtime: JavaScript + Platform APIs
+3. Tooling: So so so so so many
 
-### Spec: 165 pages
+Spec: 165 pages
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Enter WebAssembly]
 
 ## Previously, the web could only handle *high level* tasks.
 
 ## With wasm, the web platform can handle *low level* tasks.
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Enter WebAssembly]
 
 ## The Web Platform is closing in on application spaces previously only possible on other platforms.
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Enter WebAssembly]
 
-### Aside: isn't this Java Applets? NaCL?
+# Aside: isn't this Java Applets? NaCL?
 
-# NO
+## NO
 
-### * One VM
-### * Not tied to one language
-### * Proper platform integration
+* One VM
+* Not tied to one language
+* Proper platform integration
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Enter WebAssembly]
 
 ## It's not just about wasm, it's also about the platform expanding:
 
-### * WebGL
-### * WebAudio
-### * WebUSB (!)
+* WebGL
+* WebAudio
+* WebUSB (!)
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Enter WebAssembly]
 
 ## Soon, "web application" does not need to be synonymous with "networked application" or "web page" or anything else we associate with the web platform today.
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Enter WebAssembly]
 
 ## SPAs shifted *some* of the application to the client.
 
 ## This work enables *all* of the application to be on the client.
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Enter WebAssembly]
 
 # Why is this useful?
 
@@ -199,48 +216,55 @@ class: center, middle
 ## "no install neccesary"
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[About WebAssembly]
 
 # What *is* WebAssembly, anyway?
 
 ## Extremely misunderstood 🙁
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[About WebAssembly]
 
 # Factorial
 
 ## Wasm is a compact, binary format:
 
-<h3><code>
+```
 20 00 42 00 51 04 7e 42 01 05 20
 00 20 00 42 01 7d 10 00 7e 0b
-</code></h3>
+```
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[About WebAssembly]
 
 ## It also has a text format, so you can "view source" easily.
 
 ![textual representation](img/text.png)
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[About WebAssembly]
 
 ## It's designed to be small, efficient, and integrate with existing JS VMs.
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[About WebAssembly]
 
 ## It's *not* designed to replace JavaScript
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[About WebAssembly]
 
 ## It has limitations, such as not being able to access the DOM
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[About WebAssembly]
 
 ## It has no GC integration
 
@@ -249,28 +273,32 @@ class: center, middle
 #### JavaScript does *not* compile to wasm
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[About WebAssembly]
 
 ## You can do cool things!
 
 ![Rust in the browser](img/rustinthebrowser.png)
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[About WebAssembly]
 
 ## You can do cool things!
 
 ![buddhabrot](img/buddha.png)
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[About WebAssembly]
 
 ## Traditional web applications will always be a thing.
 
 ### This is about *expansion*, not *replacement*.
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[About WebAssembly]
 
 # The Birth &amp; Death of JavaScript
 
@@ -279,12 +307,13 @@ class: center, middle
 ---
 class: center, middle
 
-# Part II
+# .slide-header[Part II]
 
 ## Your first wasm
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Your first wasm]
 
 ## Let's add one to a number!
 
@@ -297,45 +326,50 @@ class: center, middle
 ---
 class: center, middle
 
-# Part III
+# .slide-header[Part III]
 
 ## Let's dig in!
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Digging in]
 
 # Explore
 
 #### https://wasdk.github.io/wasmcodeexplorer/
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Digging in]
 
 # Text vs Binary format
 
 ### There are two!
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Digging in]
 
 # ✨ The magic number ✨
 
 ## <code>00 61 73 6D</code>
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Digging in]
 
 # Sections (non-exhaustive)
 
-#### * Function Section
-#### * Type Section
-#### * Code Section
-#### * Start Section
-#### * Import Section
-#### * Export Section
+* Function Section
+* Type Section
+* Code Section
+* Start Section
+* Import Section
+* Export Section
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Digging in]
 
 # Defining functions
 
@@ -348,14 +382,16 @@ class: center, middle
 ### function sections tie them together
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Digging in]
 
 # Running something at the start
 
 ### The start section runs a function when the module is loaded
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Digging in]
 
 # Wasm <-> JS
 
@@ -364,14 +400,16 @@ class: center, middle
 ### The export sections declare functions you give
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Digging in]
 
 # Instructions
 
 #### https://github.com/sunfishcode/wasm-reference-manual/blob/master/WebAssembly.md#instructions
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Digging in]
 
 # Memory
 
@@ -380,7 +418,8 @@ class: center, middle
 ### Memory is like a giant array
 
 ---
-class: center, middle
+class: left, top
+# .slide-header[Digging in]
 
 # Embedding Environment
 
