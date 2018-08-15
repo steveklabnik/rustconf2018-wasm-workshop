@@ -35,43 +35,6 @@ class: center, middle
 ## LET'S GET HYPE
 
 ---
-class: left, top
-
-# .slide-header[What is "the web platform"?]
-
-## It should be "the web *application* platform."
-
----
-class: left, top
-# .slide-header[About platforms]
-
-# Platforms consist of:
-
-1. An ISA (instruction set architecture)
-2. A runtime environment and its API
-3. Tooling to help you build stuff
-
----
-class: left, top
-# .slide-header[About platforms]
-
-# Case study: UNIX on x86
-
-1. ISA: x86
-2. Runtime: UNIX (wait what?)
-3. Tooling: shell, C, gcc
-
----
-class: left, top
-# .slide-header[About platforms]
-
-# Case study: Java
-
-1. ISA: Java Bytecode
-2. Runtime: JVM
-3. Tooling: javac
-
----
 class: center, middle
 # .slide-header[About platforms]
 
@@ -113,17 +76,7 @@ class: left, top
 class: left, top
 # .slide-header[Next steps for the web platform]
 
-# Case study: Web Platform
-
-### 1. ISA: ???
-### 2. Runtime: JavaScript + Platform APIs
-### 3. Tooling: So so so so so many
-
----
-class: left, top
-# .slide-header[Next steps for the web platform]
-
-# JavaScript as ISA?
+# JavaScript for the low level stuff?
 
 ## Sort of, but not *really*.
 
@@ -149,11 +102,9 @@ class: left, top
 
 # Enter WebAssembly
 
-1. ISA: **WebAssembly**
-2. Runtime: JavaScript + Platform APIs
-3. Tooling: So so so so so many
-
-Spec: 165 pages
+* Built exactly for this task.
+* Tiny binaries. Integers.
+* Spec: 165 pages
 
 ---
 class: left, top
@@ -185,35 +136,9 @@ class: left, top
 class: left, top
 # .slide-header[Enter WebAssembly]
 
-## It's not just about wasm, it's also about the platform expanding:
-
-* WebGL
-* WebAudio
-* WebUSB (!)
-
----
-class: left, top
-# .slide-header[Enter WebAssembly]
-
-## Soon, "web application" does not need to be synonymous with "networked application" or "web page" or anything else we associate with the web platform today.
-
----
-class: left, top
-# .slide-header[Enter WebAssembly]
-
 ## SPAs shifted *some* of the application to the client.
 
 ## This work enables *all* of the application to be on the client.
-
----
-class: left, top
-# .slide-header[Enter WebAssembly]
-
-# Why is this useful?
-
-## Universal, cross-platform applications.
-
-## "no install neccesary"
 
 ---
 class: left, top
@@ -320,8 +245,6 @@ class: left, top
 #### https://github.com/WebAssembly/wabt
 
 #### https://cdn.rawgit.com/WebAssembly/wabt/aae5a4b7/demo/wat2wasm/index.html
-
-#### http://steveklabnik.github.io/booster2018/test.html
 
 ---
 class: center, middle
